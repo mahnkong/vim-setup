@@ -1,5 +1,7 @@
 call pathogen#infect()
 
+filetype plugin indent on
+
 set nocompatible
 
 set undofile
@@ -37,8 +39,7 @@ autocmd FileType ruby nested :call tagbar#autoopen(0)
 autocmd VimEnter javascript nested :call tagbar#autoopen(1)
 autocmd FileType javascript nested :call tagbar#autoopen(0)
 
-au BufRead,BufNewFile *.yaml set filetype=ansible
-au BufRead,BufNewFile *.yml set filetype=ansible
+au FileType yaml setl sw=2 sts=2 et
 
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
