@@ -4,22 +4,41 @@ filetype plugin indent on
 
 set nocompatible
 
+if has("win32")
+    source $VIMRUNTIME/vimrc_example.vim
+    source $VIMRUNTIME/mswin.vim
+    behave mswin
+    au GUIEnter * simalt ~x
+    let g:tagbar_ctags_bin = "$VIMRUNTIME/../../../ctags.exe"
+endif
+
+if has('gui_running')
+    set guioptions-=m  "remove menu bar
+    set guioptions-=T  "remove toolbar
+    set guioptions-=r  "remove right-hand scroll bar
+    set guioptions-=L  "remove left-hand scroll bar
+    set guifont=DejaVu_Sans_Mono:h10:cANSI
+    set background=dark
+    colorscheme solarized
+    set number
+endif
+
 set undofile
 set nobackup
 
 set tabstop=4
 set shiftwidth=4
 set expandtab
-syntax on
 
+syntax on
 set modifiable
 
 map <A-Left> :tabprev<CR>
 map <A-Right> :tabnext<CR>
 map <A-Down> :NERDTreeFocusToggle<CR>
 
-map <F3> :s/^/#/<CR>
-map <F4> :s/#//<CR>
+map <F3> :set paste<CR>
+map <F4> :set nopaste<CR>
 map <F6> :MRU<CR>
 map <F7> :SyntasticCheck<CR>
 map <F10> :YRShow<CR>
@@ -33,9 +52,12 @@ let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_puppet_checkers = ['puppet']
 let g:syntastic_enable_perl_checker = 1
 let g:syntastic_perl_checkers = ['perl']
+let g:syntastic_java_checkers=['']
 
 autocmd VimEnter ruby nested :call tagbar#autoopen(1)
 autocmd FileType ruby nested :call tagbar#autoopen(0)
+autocmd VimEnter java nested :call tagbar#autoopen(1)
+autocmd FileType java nested :call tagbar#autoopen(0)
 autocmd VimEnter javascript nested :call tagbar#autoopen(1)
 autocmd FileType javascript nested :call tagbar#autoopen(0)
 
