@@ -33,12 +33,9 @@ set expandtab
 syntax on
 set modifiable
 
-map <A-Left> :tabprev<CR>
-map <A-Right> :tabnext<CR>
-map <A-Down> :NERDTreeFocusToggle<CR>
-
 map <F3> :set paste<CR>
 map <F4> :set nopaste<CR>
+map <F5> :NERDTreeFocusToggle<CR>
 map <F6> :MRU<CR>
 map <F7> :SyntasticCheck<CR>
 map <F10> :YRShow<CR>
