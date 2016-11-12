@@ -52,6 +52,7 @@ let g:syntastic_puppet_checkers = ['puppet']
 let g:syntastic_enable_perl_checker = 1
 let g:syntastic_perl_checkers = ['perl']
 let g:syntastic_java_checkers=['']
+let g:neocomplete#enable_at_startup = 1
 
 autocmd VimEnter ruby nested :call tagbar#autoopen(1)
 autocmd FileType ruby nested :call tagbar#autoopen(0)
