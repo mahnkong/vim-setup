@@ -44,6 +44,8 @@ map <F7> :SyntasticCheck<CR>
 map <F10> :YRShow<CR>
 map <F12> :TagbarToggle<CR>
 
+let mapleader = ","
+
 let g:nerdtree_tabs_focus_on_files = 1
 let g:nerdtree_tabs_autofind = 1
 
@@ -53,6 +55,20 @@ let g:syntastic_enable_perl_checker = 1
 let g:syntastic_perl_checkers = ['perl']
 let g:syntastic_java_checkers=['']
 let g:neocomplete#enable_at_startup = 1
+
+set completeopt-=preview
+" run :GoBuild or :GoTestCompile based on the go file
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#test#Test(0, 1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction
+
+autocmd FileType go nmap <leader>t  <Plug>(go-test)
+autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 
 autocmd VimEnter ruby nested :call tagbar#autoopen(1)
 autocmd FileType ruby nested :call tagbar#autoopen(0)
