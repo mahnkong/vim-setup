@@ -50,10 +50,10 @@ let g:nerdtree_tabs_focus_on_files = 1
 let g:nerdtree_tabs_autofind = 1
 
 let g:syntastic_javascript_checkers = ['jshint']
-let g:syntastic_puppet_checkers = ['puppet']
 let g:syntastic_enable_perl_checker = 1
 let g:syntastic_perl_checkers = ['perl']
 let g:syntastic_java_checkers=['']
+let g:syntastic_go_checkers=['']
 let g:neocomplete#enable_at_startup = 1
 
 set completeopt-=preview
@@ -78,34 +78,6 @@ autocmd VimEnter javascript nested :call tagbar#autoopen(1)
 autocmd FileType javascript nested :call tagbar#autoopen(0)
 
 au FileType yaml setl sw=2 sts=2 et
-
-let g:tagbar_type_go = {
-    \ 'ctagstype' : 'go',
-    \ 'kinds'     : [
-        \ 'p:package',
-        \ 'i:imports:1',
-        \ 'c:constants',
-        \ 'v:variables',
-        \ 't:types',
-        \ 'n:interfaces',
-        \ 'w:fields',
-        \ 'e:embedded',
-        \ 'm:methods',
-        \ 'r:constructor',
-        \ 'f:functions'
-    \ ],
-    \ 'sro' : '.',
-    \ 'kind2scope' : {
-        \ 't' : 'ctype',
-        \ 'n' : 'ntype'
-    \ },
-    \ 'scope2kind' : {
-        \ 'ctype' : 't',
-        \ 'ntype' : 'n'
-    \ },
-    \ 'ctagsbin'  : 'gotags',
-    \ 'ctagsargs' : '-sort -silent'
-\ }
 
 set diffexpr=MyDiff()
 function MyDiff()
