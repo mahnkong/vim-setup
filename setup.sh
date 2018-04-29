@@ -1,7 +1,10 @@
 #!/bin/bash
 
-VIM_DATADIR="$HOME/.vim"
-VIMRC="$HOME/.vimrc"
+
+USERHOME=$(echo $(getent passwd $USER )| cut -d : -f 6)
+
+VIM_DATADIR="$USERHOME/.vim"
+VIMRC="$USERHOME/.vimrc"
 
 if [ "$1" != "" ]; then
     VIM_DATADIR="$1/Data/settings/vimfiles"
