@@ -1,5 +1,6 @@
 #!/bin/bash
 
+set -e
 
 USERHOME=$(echo $(getent passwd $USER )| cut -d : -f 6)
 
