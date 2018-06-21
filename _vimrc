@@ -77,6 +77,8 @@ autocmd FileType java nested :call tagbar#autoopen(0)
 autocmd VimEnter javascript nested :call tagbar#autoopen(1)
 autocmd FileType javascript nested :call tagbar#autoopen(0)
 
+autocmd BufWritePre * %s/\s\+$//e
+
 au FileType yaml setl sw=2 sts=2 et
 
 set diffexpr=MyDiff()
