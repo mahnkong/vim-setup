@@ -41,8 +41,8 @@ map <F4> :set nopaste<CR>
 map <F5> :NERDTreeFocusToggle<CR>
 map <F6> :MRU<CR>
 map <F7> :SyntasticCheck<CR>
+map <F8> :TagbarToggle<CR>
 map <F10> :YRShow<CR>
-map <F12> :TagbarToggle<CR>
 
 let mapleader = ","
 
@@ -69,13 +69,6 @@ endfunction
 
 autocmd FileType go nmap <leader>t  <Plug>(go-test)
 autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
-
-autocmd VimEnter ruby nested :call tagbar#autoopen(1)
-autocmd FileType ruby nested :call tagbar#autoopen(0)
-autocmd VimEnter java nested :call tagbar#autoopen(1)
-autocmd FileType java nested :call tagbar#autoopen(0)
-autocmd VimEnter javascript nested :call tagbar#autoopen(1)
-autocmd FileType javascript nested :call tagbar#autoopen(0)
 
 au FileType yaml setl sw=2 sts=2 et
 
