@@ -70,6 +70,8 @@ endfunction
 autocmd FileType go nmap <leader>t  <Plug>(go-test)
 autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 
+autocmd BufWritePre * %s/\s\+$//e
+
 au FileType yaml setl sw=2 sts=2 et
 
 set diffexpr=MyDiff()
