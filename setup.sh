@@ -17,7 +17,7 @@ curl -LSso $VIM_DATADIR/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
 cp $(dirname $0)/_vimrc $VIMRC
 
-for plugin in yegappan/mru scrooloose/syntastic ervandew/supertab Raimondi/delimitMate majutsushi/tagbar fatih/vim-go scrooloose/nerdtree vim-scripts/YankRing.vim Shougo/neocomplete.vim altercation/vim-colors-solarized.git vim-airline/vim-airline rodjek/vim-puppet; do
+for plugin in yegappan/mru scrooloose/syntastic ervandew/supertab Raimondi/delimitMate majutsushi/tagbar fatih/vim-go scrooloose/nerdtree vim-scripts/YankRing.vim Shougo/neocomplete.vim altercation/vim-colors-solarized.git vim-airline/vim-airline rodjek/vim-puppet saltstack/salt-vim; do
     echo "Plugin: $plugin"
     git -C $VIM_DATADIR/bundle/$(basename $plugin) pull || git clone --depth 1 https://github.com/$plugin $VIM_DATADIR/bundle/$(basename $plugin) 
 done
