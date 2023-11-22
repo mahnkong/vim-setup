@@ -7,7 +7,7 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 Plug 'yegappan/mru'
-Plug 'scrooloose/syntastic'
+Plug 'neomake/neomake'
 Plug 'ervandew/supertab'
 Plug 'Raimondi/delimitMate'
 Plug 'majutsushi/tagbar'
@@ -74,9 +74,8 @@ let g:nerdtree_tabs_autofind = 1
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_enable_perl_checker = 1
 let g:syntastic_perl_checkers = ['perl']
-let g:syntastic_java_checkers=['']
-let g:syntastic_go_checkers=['']
-let g:neocomplete#enable_at_startup = 1
+" let g:syntastic_java_checkers=['']
+" let g:syntastic_go_checkers=['']
 
 set completeopt-=preview
 " run :GoBuild or :GoTestCompile based on the go file
@@ -95,6 +94,9 @@ autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 autocmd BufWritePre * %s/\s\+$//e
 
 au FileType yaml setl sw=2 sts=2 et
+
+
+call neomake#configure#automake('nrwi', 500)
 
 " Change directory to the current buffer when opening files.
 set autochdir
