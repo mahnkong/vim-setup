@@ -15,7 +15,7 @@ Plug 'vim-scripts/YankRing.vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'vim-airline/vim-airline'
 Plug 'pearofducks/ansible-vim'
-
+Plug 'Exafunction/codeium.vim', { 'branch': 'main' }
 
 let g:deoplete#enable_at_startup = 1
 call plug#end()
@@ -44,8 +44,8 @@ if has('gui_running')
     set number
 endif
 
-set background=dark
-colorscheme solarized
+"set background=dark
+"colorscheme solarized
 
 set undofile
 set nobackup
